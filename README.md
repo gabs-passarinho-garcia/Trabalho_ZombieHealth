@@ -1,5 +1,5 @@
 # Trabalho_ZombieHealth
 Trabalho para a matéria MC322; 
-**Nomes:\n 
-Gabriel de Freitas Garcia, 216179;\n 
+**Nomes: 
+Gabriel de Freitas Garcia, 216179; 
 Henrique Finger, 21777;**
