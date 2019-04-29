@@ -1,10 +1,10 @@
 package zumbi.Interfaces;
 
 public interface Icontador {
-	public static int conta_porcentagem(String[][] sintomas);
-		/*Método que analisa uma matriz de sintomas 
-		 * e pode devolver qual o sintoma mais presente, 
-		 * ou o que está presente em metade dos casos, etc.
+	public int conta_porcentagem(String[][] sintomas);
+		/* Recebe a matriz de sintomas e devolve a posição do sintoma que tem a maior
+		 * ou menor diferença entre existir e não existir dentre os sintomas que ainda 
+		 * não foram perguntados
 		 */
 	
 }
