@@ -1,3 +1,5 @@
+package zumbi.Interfaces;
+
 public interface IRedutorPossibilidades {
 	public String[][] novaTabela(String[][] tabela, int sintoma, String resposta);
 }
