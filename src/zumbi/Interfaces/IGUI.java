@@ -1,3 +1,5 @@
+package zumbi.Interfaces;
+
 public interface IGUI{
 	
 	public void initGUI();
@@ -55,3 +57,4 @@ public interface IGUI{
  * 
  * 
  * ----------------------------------------------------------------------------
+ */
