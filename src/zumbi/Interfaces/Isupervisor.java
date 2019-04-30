@@ -1,4 +1,4 @@
-package zumbi.Componentes;
+package zumbi.Interfaces;
 
 public interface Isupervisor {
 	public void reportar(String diag, String doenca);
