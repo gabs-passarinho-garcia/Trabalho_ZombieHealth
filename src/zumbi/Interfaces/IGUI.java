@@ -3,7 +3,7 @@ package zumbi.Interfaces;
 public interface IGUI{
 	
 	public void initGUI();
-	public void connectPaciente(Pantient enfermo);
+	public void connectPaciente(Patient enfermo);
 	public void connectDoutor(Doctor doutor);
 
 }
