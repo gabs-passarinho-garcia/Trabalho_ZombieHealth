@@ -1,19 +1,19 @@
 package zumbi.Interfaces;
 
 public interface Icontador {
-	public int conta_porcentagem(String[][] sintomas);
+	public int melhorPergunta(String[][] sintomas);
 	
 }
 
 /* 
- * public int conta_porcentagem(String[][] sintomas)
+ * public int melhorPergunta(String[][] sintomas)
  * 
  * Parametros:
  * 		String[][] sintomas: Matriz de strings contendo os sintomas (t ou f) para cada paciente,
- * 		e seu respectivo diagnóstico.
+ * 		e seu respectivo diagnÃ³stico.
  * 		
  * Retornos:
- * 		int contendo a posição do sintoma de maior interesse para uma pergunta, pode ser o sintoma
+ * 		int contendo a posiÃ§Ã£o do sintoma de maior interesse para uma pergunta, pode ser o sintoma
  * 		com a maior igualdade entre t e fs ou o de menor, dependendo do construtor escolhido na hora de
  * 		instanciar.
  */
