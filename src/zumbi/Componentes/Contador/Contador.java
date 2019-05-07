@@ -1,6 +1,6 @@
-package zumbi.Interfaces.IContador;
+package zumbi.Componentes.Contador;
 
-public interface IContador {
+public interface Contador {
 	public int melhorPergunta(String[][] sintomas);
 	public int[] melhoresPerguntas(String[][] sintomas);
 	

@@ -1,6 +1,6 @@
-package zumbi.Interfaces.ISupervisor;
+package zumbi.Componentes.Supervisor;
 
-public interface ISupervisor {
+public interface Supervisor {
 	public void reportar(String diag, String doenca);
 	public void gerarRelatorio();
 	public void motivar();

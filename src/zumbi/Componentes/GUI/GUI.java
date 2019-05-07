@@ -1,6 +1,6 @@
-package zumbi.Interfaces.IGUI;
+package zumbi.Componentes.GUI;
 
-public interface IGUI{
+public interface GUI{
 	
 	public void initGUI();
 	public void connectPaciente(Patient enfermo);

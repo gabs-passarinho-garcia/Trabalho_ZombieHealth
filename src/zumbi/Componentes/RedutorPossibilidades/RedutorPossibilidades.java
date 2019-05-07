@@ -1,6 +1,6 @@
-package zumbi.Interfaces.IRedutorPossibilidades;
+package zumbi.Componentes.RedutorPossibilidades;
 
-public interface IRedutorPossibilidades {
+public interface RedutorPossibilidades {
 	public String[][] novaTabela(String[][] tabela, int sintoma, String resposta);
 }
 

@@ -1,6 +1,4 @@
-package zumbi.Componentes;
-
-import zumbi.Interfaces.Icontador;
+package zumbi.Componentes.Contador;
 
 public class ContaMetade implements Icontador {
 	public int melhorPergunta(String[][] sintomas) {
