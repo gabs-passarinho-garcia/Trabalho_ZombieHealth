@@ -14,10 +14,10 @@
 
 | Campo | Valor |
 |---|---|
-| Classe | *zumbi.Componentes.Contador* |
+| Classe | *zumbi.Componentes.Contador.Contador* |
 | Autores | Gabriel |
 | Objetivo | Encontrar a melhor pergunta |
-| Interface | IContador |
+| Interface | *zumbi.Interfaces.IContador.IContador* |
 
 ~~~
 public interface IContador {
@@ -29,3 +29,9 @@ public interface IContador {
 ### Detalhamento da interface
 
 #### Interface *IContador*
+Interface que utilizada para analisar uma fonte de dados
+
+| Método | Objetivo |
+|---|---|
+| int melhorPergunta(String[][] sintomas) | Retorna qual é o sintoma (int) mais eficiente para se perguntar |
+| int[] melhoresPerguntas(String[][] sintomas) | Retorna um vetor contendo, em ordem, os sintomas de maior interesse a se perguntar |
