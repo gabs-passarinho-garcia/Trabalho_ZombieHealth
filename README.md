@@ -36,6 +36,7 @@ Interface que utilizada para analisar uma fonte de dados
 | int melhorPergunta(String[][] sintomas) | Retorna qual é o sintoma (int) mais eficiente para se perguntar |
 | int[] melhoresPerguntas(String[][] sintomas) | Retorna um vetor contendo, em ordem, os sintomas de maior interesse a se perguntar |
 
+
 ### Componente RedutorPossibilidades
 
 | Campo | Valor |
