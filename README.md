@@ -41,8 +41,8 @@ Interface que utilizada para analisar uma fonte de dados
 
 | Campo | Valor |
 |---|---|
-| Classe | *zumbi.Componentes.RedutorPossibilidades.RedutorPossibilidades(Não implementado)* |
-| Autores | Felipe (Igor?) |
+| Classe | *zumbi.Componentes.RedutorPossibilidades.RedutorPossibilidades* |
+| Autores | Felipe |
 | Objetivo | Remover da matriz os pacientes incompatíveis com a resposta |
 | Interface | *zumbi.Interfaces.IRedutorPossibilidades.IRedutorPossibilidades* |
 
