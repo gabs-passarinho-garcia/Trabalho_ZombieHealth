@@ -35,3 +35,28 @@ Interface que utilizada para analisar uma fonte de dados
 |---|---|
 | int melhorPergunta(String[][] sintomas) | Retorna qual é o sintoma (int) mais eficiente para se perguntar |
 | int[] melhoresPerguntas(String[][] sintomas) | Retorna um vetor contendo, em ordem, os sintomas de maior interesse a se perguntar |
+
+### Componente RedutorPossibilidades
+
+| Campo | Valor |
+|---|---|
+| Classe | *zumbi.Componentes.RedutorPossibilidades.RedutorPossibilidades(Não implementado)* |
+| Autores | Felipe (Igor?) |
+| Objetivo | Remover da matriz os pacientes incompatíveis com a resposta |
+| Interface | *zumbi.Interfaces.IRedutorPossibilidades.IRedutorPossibilidades* |
+
+~~~
+public interface IRedutorPossibilidades {
+	public String[][] novaTabela(String[][] tabela, int sintoma, String resposta);
+}
+~~~
+
+### Detalhamento da interface
+
+#### Interface *IRedutorPossibilidades*
+Interface de tratamento de dados
+
+| Método | Objetivo |
+|---|---|
+| public String[][] novaTabela(String[][] tabela, int sintoma, String resposta) | Recebe o sintoma e remove da tabela os pacientes que não condizem com a resposta obtida, retornando uma tabela atualizada |
+
