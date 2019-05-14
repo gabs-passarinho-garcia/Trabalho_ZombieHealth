@@ -90,6 +90,31 @@ Interface que utilizada para analisar uma fonte de dados
 | void gerarRelatorio() | Imprime métricas de acurácia, precisão, sensibilidade, especifidade e *F1 score* dos diagnósticos reportados |
 | void motivar() | Imprime uma mensagem motivacional para o doutor que está cansado de ficar de plantão e não vê mais sentido na vida |
 
+### Componente *Interface Gráfica*
 
+| Campo | Valor |
+|---|---|
+| Classe | *zumbi.Componentes.GUI.GUI* |
+| Autores | Matheus |
+| Objetivo | Apresentar uma interface gráfica interativa |
+| Interface | *zumbi.Interfaces.IGUI.IGUI* |
+
+~~~
+public interface IGUI {
+	public void open();
+}
+~~~
+
+### Detalhamento da interface
+
+#### Interface *IGUI*
+Interface Gráfica de Usuário
+
+| Método | Objetivo |
+|---|---|
+| void open() | Gera a janela do programa na tela |
+| void connectDoutor(Doctor doutor) | Conecta o doutor ao programa |
+| void connectPaciente(Patient patient) | Conecta o paciente ao programa |
+| void diagnostico() | Realiza e imprime o diagnóstico na tela |
 
 
