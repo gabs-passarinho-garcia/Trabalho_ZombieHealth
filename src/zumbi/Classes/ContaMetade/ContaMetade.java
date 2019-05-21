@@ -2,6 +2,8 @@ package zumbi.Classes.ContaMetade;
 
 import zumbi.Interfaces.IContador.IContador;
 import java.lang.Math;
+import zumbi.Classes.ConversorString.ConversorString;
+import java.util.*;
 
 public class ContaMetade implements IContador {
 	public int melhorPergunta(String[][] sintomas) {
@@ -26,7 +28,9 @@ public class ContaMetade implements IContador {
 		return melhor;
 	}
 	public int[] melhoresPerguntas(String[][] sintomas) {
-		int[] perguntas;
+		int[] perguntas = new int[sintomas.length];
+		int pos = 0;
+		ArrayList<ArrayList<String>> matrizGeral = ConversorString.converteMatriz(sintomas);
 		return perguntas;
 	}
 }
