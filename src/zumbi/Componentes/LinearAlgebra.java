@@ -1,28 +1,28 @@
 import java.util.*;
 
 public class LinearAlgebra{
-    public static int somaColuna(Vector<Vector<int>> matriz, int coluna)
+    public static int somaColuna(Vector<Vector<Integer>> matriz, int coluna)
     {
         int total = 0;
         for (int i = 0; i < matriz.size(); i++){
-            total += matriz[i][coluna];
+            total += (matriz.get(i)).get(coluna);
         }
         return total;
     }
-    public static int somaLinha(Vector<Vector<int>> matriz, int linha)
+    public static int somaLinha(Vector<Vector<Integer>> matriz, int linha)
     {
         int total = 0;
-        for (int i = 0; i < matriz[0].size(); i++){
-            total += matriz[linha][i];
+        for (int i = 0; i < (matriz.get(0)).size(); i++){
+            total += (matriz.get(linha)).get(i);
         }
         return total;
     }
-    public static int somaDiagonal(Vector<Vector<int>> matriz)
+    public static int somaDiagonal(Vector<Vector<Integer>> matriz)
     {
         int total = 0;
 
-        for (int i = 0; i < smaller(matriz.size(),matriz[0].size()); i++){
-            total += matriz[i][i];
+        for (int i = 0; i < smaller(matriz.size(),(matriz.get(0)).size()); i++){
+            total += (matriz.get(i)).get(i);
         }
         return total;
     }
