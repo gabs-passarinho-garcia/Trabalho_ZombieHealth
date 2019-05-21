@@ -6,9 +6,11 @@ import java.lang.Math;
 public class ContaMetade implements IContador {
 	public int melhorPergunta(String[][] sintomas) {
 		int melhor = 0;
-		int verdadeiros = 0, verdadeirosMelhor = sintomas.length;
-		int falsos = 0, falsosMelhor = 0;
+		int verdadeiros, verdadeirosMelhor = sintomas.length;
+		int falsos, falsosMelhor = 0;
 		for (int j = 0; j < sintomas[0].length;j++) {
+			verdadeiros = 0;
+			falsos = 0;
 			for (int i = 0; i < sintomas.length;i++) {
 				if (sintomas[i][j].equals("t"))
 					verdadeiros++;
