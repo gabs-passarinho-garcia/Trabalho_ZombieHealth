@@ -6,5 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.swt"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
