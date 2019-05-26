@@ -2,9 +2,9 @@ package zumbi.Interfaces.IGUI;
 
 public interface IGUI{
 	
-	public void initGUI();
-	public void connectPaciente(Patient enfermo);
-	public void connectDoutor(Doctor doutor);
+	public void open();
+	//public void connectPaciente(Patient enfermo);
+	//public void connectDoutor(Doctor doutor);
 
 }
 
