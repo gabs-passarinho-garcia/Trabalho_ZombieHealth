@@ -11,8 +11,52 @@ public class Supervisor implements ISupervisor{
 	
 	
 	public void gerarRelatorio() {
-		double acc, rec, sen, f1;
-		System.out.print("p");
+		double acc=0, rec=0, pre=0, spe=0, f1=0;
+		int nClass = index.size();
+		int lAcc=0, lrec=0, lpre=0, lspe=0, lf1=0;
+		int total = LinearAlgebra.somaTotal(matrix);
+		acc = (double) LinearAlgebra.somaDiagonal(matrix) / total;
+		
+		for (int i=0; i<nClass; i++) {
+			double tp, fp, fn, tn;
+			tp = matrix.get(i).get(i);
+			fp = LinearAlgebra.somaLinha(matrix, i) - tp;
+			fn = LinearAlgebra.somaColuna(matrix, i) - tp;
+			tn = LinearAlgebra.somaDiagonal(matrix) - tp;
+		
+			if(tp+fn != 0) {
+				rec = rec + (double) tp/(tp+fn);
+			}
+			else {
+				lrec = lrec + 1;
+			}
+			if (tp+fp != 0) {
+				pre = pre + (double) tp/(tp+fp);
+			}
+			else {
+				lpre = lpre + 1;
+			}
+			if(tn+fp != 0) {
+				spe = spe + (double) tn/(tn+fp);
+			}
+			else {
+				lspe = lspe + 1;
+			}
+			if(pre+rec != 0) {
+			f1 = f1 + (double) (2*pre*rec)/(pre+rec);
+			}
+			else {
+				lf1 = lf1 + 1;
+			}
+		}
+			
+		
+		rec = (double) rec/(total-lrec);
+		pre = (double) pre/(total-lpre);
+		spe = (double) spe/(total-lspe);
+		f1 = (double) f1/(total-lf1);
+		
+		System.out.println(acc + ", " + pre + ", " + spe + ", " + f1);
 	}
 	
 	//Implementar direito
