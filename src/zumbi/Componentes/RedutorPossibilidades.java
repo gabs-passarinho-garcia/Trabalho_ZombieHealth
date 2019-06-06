@@ -21,3 +21,18 @@ public class RedutorPossibilidades implements IRedutorPossibilidades {
 		return newTable;
 	}
 }
+
+/*
+Exemplo de uso:
+	Abaixo, a "tabelaPacientes" eh a tabela de instancias, "n" corresponde a posicao do paciente, 
+"pos" se refere a coluna da pergunta que deseja ser feita e tabelaPacientes[n][pos] eh a "resposta" 
+do paciente (t ou f).
+	Pode-se obter a "resposta" do paciente por outro metodo e passado como referencia no lugar de
+"tabelaPacientes[n][pos]"
+===============================================================================================
+
+	RedutorPossibilidades redutor = new RedutorPossibilidades();
+	tabelaPacientes = redutor.novaTabela(tabelaPacientes, pos, tabelaPacientes[n][pos]);
+	
+===============================================================================================
+*/
