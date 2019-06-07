@@ -1,4 +1,4 @@
-package zumbi.Classes.ContaMetade;
+package zumbi.Componentes.ContaMetade;
 
 import zumbi.Interfaces.IContador.IContador;
 import java.lang.Math;
