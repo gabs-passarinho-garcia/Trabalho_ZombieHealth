@@ -11,6 +11,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Slider;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.widgets.FileDialog;
 
 public class GUI implements IGUI{
 
@@ -74,6 +80,11 @@ public class GUI implements IGUI{
 		lblNomeM.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		Label lblNomeP = new Label(shell, SWT.NONE);
 		lblNomeP.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		StyledText Diagnostico = new StyledText(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
+		Button btnSalvar = new Button(shell, SWT.NONE);
+		Button btnMotivar = new Button(shell, SWT.NONE);
+		Button btnEstatisticas = new Button(shell, SWT.NONE);
+		Button btnResetar = new Button(shell, SWT.NONE);
 		
 		//Label lblNomeM = new Label(shell, SWT.NONE);
 		lblNomeM.setBounds(53, 359, 363, 17);
@@ -121,8 +132,20 @@ public class GUI implements IGUI{
 		lblPaciente.setVisible(false);
 		
 		//Button btnDiagnostico = new Button(shell, SWT.NONE);
+		btnDiagnostico.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Diagnostico.setText("Diagnóstico:\n");
+				btnDiagnostico.setVisible(false);
+				Diagnostico.setVisible(true);
+				btnSalvar.setVisible(true);
+				btnMotivar.setVisible(true);
+				btnEstatisticas.setVisible(true);
+				btnResetar.setVisible(true);
+			}
+		});
 		btnDiagnostico.setAlignment(SWT.RIGHT);
-		btnDiagnostico.setBounds(411, 215, 79, 29);
+		btnDiagnostico.setBounds(382, 215, 79, 29);
 		btnDiagnostico.setText("Diagnose");
 		btnDiagnostico.setVisible(false);
 		
@@ -144,6 +167,55 @@ public class GUI implements IGUI{
 		
 		//Label lblNomeP = new Label(shell, SWT.NONE);
 		lblNomeP.setBounds(608, 359, 251, 48);
+		
+		//StyledText Diagnostico = new StyledText(shell, SWT.BORDER);
+		Diagnostico.setBounds(307, 80, 226, 118);
+		Diagnostico.setVisible(false);
+		
+		//Button btnSalvar = new Button(shell, SWT.NONE);
+		btnSalvar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				FileDialog fld = new FileDialog(shell, SWT.SAVE);
+				fld.setText("sdw");
+				fld.setFilterPath("./");
+				fld.open();
+				System.out.println(fld.getFileName());
+			}
+		});
+		btnSalvar.setBounds(307, 215, 97, 29);
+		btnSalvar.setText("Salvar");
+		btnSalvar.setVisible(false);
+		
+		//Button btnMotivar = new Button(shell, SWT.NONE);
+		btnMotivar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnMotivar.setBounds(436, 215, 97, 29);
+		btnMotivar.setText("Motivar");
+		btnMotivar.setVisible(false);
+		
+		//Button btnEstatisticas = new Button(shell, SWT.NONE);
+		btnEstatisticas.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnEstatisticas.setBounds(307, 250, 97, 29);
+		btnEstatisticas.setText("Estatísticas");
+		btnEstatisticas.setVisible(false);
+		
+		//Button btnResetar = new Button(shell, SWT.NONE);
+		btnResetar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnResetar.setBounds(436, 250, 97, 29);
+		btnResetar.setText("Resetar");
+		btnResetar.setVisible(false);
 		
 		Label lblBackground = new Label(shell, SWT.NONE);
 		lblBackground.setImage(SWTResourceManager.getImage("./Imagens/hospital_room.png"));
