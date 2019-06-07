@@ -2,9 +2,9 @@ package zumbi.Classes.ContaMetade;
 
 import zumbi.Interfaces.IContador.IContador;
 import java.lang.Math;
-import java.io.*;
 
-public class ContaMetadeDAO implements IContador {
+
+public class ContaMetade implements IContador {
 	public int melhorPergunta(String[][] sintomas) {
 		int melhor = 0;
 		int verdadeiros, verdadeirosMelhor = sintomas.length;
