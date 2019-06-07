@@ -23,6 +23,10 @@ public class Teste {
 		((Supervisor)b).imprimir();
 		b.gerarRelatorio();
 		
+		b.reset();
+		b.reportar("vomito", "gripe");
+		((Supervisor)b).imprimir();
+		System.out.println(b.getAcuracia());
 		b.motivar();
 		System.out.println(b.strMotivar());
 	}

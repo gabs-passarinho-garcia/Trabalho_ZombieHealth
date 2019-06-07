@@ -8,6 +8,8 @@ public interface ISupervisor {
 	public String strMotivar();
 	public void serializar(String path);
 	public void desserializar(String path);
+	public double getAcuracia();
+	public void reset();
 }
 
 /*

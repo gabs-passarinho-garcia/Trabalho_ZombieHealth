@@ -21,6 +21,16 @@ public class Supervisor implements ISupervisor{
 		return index;
 	}
 	
+	public double getAcuracia() {
+		int total = LinearAlgebra.somaTotal(matrix);
+		return (double) LinearAlgebra.somaDiagonal(matrix) / total;
+	}
+	
+	public void reset() {
+		matrix= new Vector<Vector<Integer>>();
+		index = new Vector<String>();
+	}
+	
 	
 	public String strRelatorio() {
 		double acc=0, rec=0, pre=0, spe=0, f1=0;
@@ -76,7 +86,7 @@ public class Supervisor implements ISupervisor{
 		System.out.print(strRelatorio());
 	}
 	
-	//Implementar direito
+
 	public void motivar() {
 		System.out.println(strMotivar());
 	}
