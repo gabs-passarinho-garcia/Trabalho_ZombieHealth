@@ -7,6 +7,9 @@
 
 - src
   - Projeto Eclipse
+  
+- Arquivos .jar
+  - Componente à venda =p
 
 ## Documentação dos componentes
 
@@ -64,16 +67,22 @@ Interface de tratamento de dados
 
 | Campo | Valor |
 |---|---|
-| Classe | *zumbi.Componentes.Supervisor.Supervisor* |
+| Classe | *zumbi.Componentes.Supervisor.* |
 | Autores | Christian |
 | Objetivo | Avaliar o desempenho do doutor nos diagnósticos |
-| Interface | *zumbi.Interfaces.ISupervisor.ISupervisor* |
+| Interface | *zumbi.Interfaces.ISupervisor.* |
 
 ~~~
 public interface ISupervisor {
 	public void reportar(String diag, String doenca);
 	public void gerarRelatorio();
+	public String strRelatorio();
 	public void motivar();
+	public String strMotivar();
+	public void serializar(String path);
+	public void desserializar(String path);
+	public double getAcuracia();
+	public void reset();
 }
 ~~~
 
@@ -87,6 +96,12 @@ Interface que utilizada para analisar uma fonte de dados
 | void reportar(String diag, String doenca) | Informa o supervisor do diagnóstico feito pelo doutor e da real doença do zumbi |
 | void gerarRelatorio() | Imprime métricas de acurácia, precisão, sensibilidade, especifidade e *F1 score* dos diagnósticos reportados |
 | void motivar() | Imprime uma mensagem motivacional para o doutor que está cansado de ficar de plantão e não vê mais sentido na vida |
+| String strMotivar() | Retorna a frase motivacional |
+| String strRelatorio() | Retorna o relatório como String |
+| void serializar(String path) | Serializa o o Supervisor para a pasta indicada por path (diretório) |
+| void desserializar(String path) | Desserializa o Supervisor serializado na pasta indicada por path |
+| double getAcuracia() | Retorna a acurácia dos diagnósticos até então |
+| void reset() | Reinicia todas as métricas |
 
 ### Componente *Interface Gráfica*
 
