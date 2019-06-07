@@ -1,6 +1,11 @@
 package zumbi.Componentes;
 
 import zumbi.Interfaces.IGUI.IGUI;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
@@ -25,6 +30,7 @@ public class GUI implements IGUI{
 	private int diag = 0;
 	private Text textMedico;
 	private Text textPaciente;
+	static Boolean reset_button = true;
 	
 	public void openDiag(Button atual) {
 		if(diag>1)
@@ -37,8 +43,11 @@ public class GUI implements IGUI{
 	 */
 	public static void main(String[] args) {
 		try {
-			GUI window = new GUI();
-			window.open();
+			while(reset_button == true) {
+				reset_button = false;
+				GUI window = new GUI();
+				window.open();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,7 +74,7 @@ public class GUI implements IGUI{
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(890, 500);
-		shell.setText("SWT Application");
+		shell.setText("Matitos's Hospital");
 		
 		Button btnMedico = new Button(shell, SWT.NONE);
 		Button btnPaciente = new Button(shell, SWT.NONE);
@@ -177,9 +186,20 @@ public class GUI implements IGUI{
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				FileDialog fld = new FileDialog(shell, SWT.SAVE);
-				fld.setText("sdw");
-				fld.setFilterPath("./");
+				fld.setText("Salvar Diagnóstico");
+				String txtFilter[] = {".txt"};
+				fld.setFilterExtensions(txtFilter);
+				fld.setFileName("diagnostico");
+				fld.setFilterPath("");
 				fld.open();
+				try {
+					FileWriter arquivo = new FileWriter(fld.getFileName());
+					PrintWriter formatado = new PrintWriter(arquivo);
+					formatado.println(Diagnostico.getText());
+					arquivo.close();
+				} catch(IOException erro) {
+					erro.printStackTrace();
+				}
 				System.out.println(fld.getFileName());
 			}
 		});
@@ -211,6 +231,8 @@ public class GUI implements IGUI{
 		btnResetar.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				reset_button = true;
+				shell.close();
 			}
 		});
 		btnResetar.setBounds(436, 250, 97, 29);
