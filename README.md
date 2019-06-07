@@ -114,8 +114,5 @@ Interface Gráfica de Usuário
 | Método | Objetivo |
 |---|---|
 | void open() | Gera a janela do programa na tela |
-| void connectDoutor(Doctor doutor) | Conecta o doutor ao programa |
-| void connectPaciente(Patient patient) | Conecta o paciente ao programa |
-| void diagnostico() | Realiza e imprime o diagnóstico na tela |
 
 
