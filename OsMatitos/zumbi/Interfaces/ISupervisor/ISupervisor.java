@@ -3,7 +3,11 @@ package zumbi.Interfaces.ISupervisor;
 public interface ISupervisor {
 	public void reportar(String diag, String doenca);
 	public void gerarRelatorio();
+	public String strRelatorio();
 	public void motivar();
+	public String strMotivar();
+	public void serializar(String path);
+	public void desserializar(String path);
 }
 
 /*
@@ -14,14 +18,14 @@ public interface ISupervisor {
  * public void reportar(String diag, String doenca)
  * 
  * Argumentos:
- * 		String diag: nome da doença diagnosticada
- * 		String doenca: nome da doença verdadeira do zumbi
+ * 		String diag: nome da doenï¿½a diagnosticada
+ * 		String doenca: nome da doenï¿½a verdadeira do zumbi
  * 
  * Retorno:
  * 		Nenhum
  * 
  * Comportamento:
- * 		Apenas armazena as informações de desempenho dos diagnósticos
+ * 		Apenas armazena as informaï¿½ï¿½es de desempenho dos diagnï¿½sticos
  * 		informados.
  * 
  * 
@@ -36,9 +40,9 @@ public interface ISupervisor {
  * 		Nenhum
  * 
  * Comportamento:
- * 		Imprime métricas de desempenho dos diagnósticos armazenados, tais como:
- * 			Acurácia
- * 			Precisão
+ * 		Imprime mï¿½tricas de desempenho dos diagnï¿½sticos armazenados, tais como:
+ * 			Acurï¿½cia
+ * 			Precisï¿½o
  * 			Sensibilidade
  * 			Especifidade
  * 			F1 score
