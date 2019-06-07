@@ -200,7 +200,6 @@ public class GUI implements IGUI{
 				} catch(IOException erro) {
 					erro.printStackTrace();
 				}
-				System.out.println(fld.getFileName());
 			}
 		});
 		btnSalvar.setBounds(307, 215, 97, 29);
