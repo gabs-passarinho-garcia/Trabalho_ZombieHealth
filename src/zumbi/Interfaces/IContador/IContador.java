@@ -1,9 +1,10 @@
 package zumbi.Interfaces.IContador;
 
+import java.io.*;
+
 public interface IContador {
 	public int melhorPergunta(String[][] sintomas);
-	public int[] melhoresPerguntas(String[][] sintomas);
-	
+	public void serializa(FileWriter arquivo);
 }
 
 /* 
@@ -18,13 +19,11 @@ public interface IContador {
  * 		com a maior igualdade entre t e fs ou o de menor, dependendo do construtor escolhido na hora de
  * 		instanciar.
  * 
- * public int[] melhoresPerguntas(String[][] sintomas)
+ * public void serializa(FileWriter arquivo)
  * 
- * Paramêtros:
- * 		String[][] sintomas: Matriz de strings contendo os sintomas (t ou f) para cada paciente,
- * 		e seu respectivo diagnóstico.
+ * Parametros:
+ * 		FileWriter arquivo: objeto FileWriter para o objeto serializar-se em um arquivo.
  * 
  * Retornos:
- * 		Vetor de ints contendo as melhores perguntas a serem feitas pelo doutor,
- * 		ordenadas da melhor para a pior dependendo do construtor escolhido para para instanciá-lo.
+ * 		Vazio.
  */

@@ -2,10 +2,9 @@ package zumbi.Classes.ContaMetade;
 
 import zumbi.Interfaces.IContador.IContador;
 import java.lang.Math;
-import zumbi.Classes.ConversorString.ConversorString;
-import java.util.*;
+import java.io.*;
 
-public class ContaMetade implements IContador {
+public class ContaMetadeDAO implements IContador {
 	public int melhorPergunta(String[][] sintomas) {
 		int melhor = 0;
 		int verdadeiros, verdadeirosMelhor = sintomas.length;
@@ -26,11 +25,5 @@ public class ContaMetade implements IContador {
 			}
 		}
 		return melhor;
-	}
-	public int[] melhoresPerguntas(String[][] sintomas) {
-		int[] perguntas = new int[sintomas.length];
-		int pos = 0;
-		ArrayList<ArrayList<String>> matrizGeral = ConversorString.converteMatriz(sintomas);
-		return perguntas;
 	}
 }
