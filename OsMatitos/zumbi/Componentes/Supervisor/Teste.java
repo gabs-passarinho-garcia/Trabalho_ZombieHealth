@@ -18,8 +18,8 @@ public class Teste {
 		((Supervisor)a).imprimir();
 		
 		System.out.print(a.strRelatorio());
-		a.serializar("/home/ec2018-fra/ra214570/");
-		ISupervisor b = FabricaSupervisor.criarSupervisor("/home/ec2018-fra/ra214570/");
+		a.serializar("");
+		ISupervisor b = FabricaSupervisor.criarSupervisor("");
 		((Supervisor)b).imprimir();
 		b.gerarRelatorio();
 		

@@ -73,10 +73,10 @@ public class Supervisor implements ISupervisor{
 		f1 = f1 + (double) (2*pre*rec)/(pre+rec);
 		
 		DecimalFormat round = new DecimalFormat("#.00");
-		String relatorio = "Acurácia: " + round.format(acc*100) + "\n";
-		relatorio = relatorio + "Precisão: " + round.format(pre*100) + "\n";
-		relatorio = relatorio + "Sensibilidade: " + round.format(rec*100) + "\n";
-		relatorio = relatorio + "Especificidade: " + round.format(spe*100) + "\n";
+		String relatorio = "Acurácia: " + round.format(acc*100) + "%\n";
+		relatorio = relatorio + "Precisão: " + round.format(pre*100) + "%\n";
+		relatorio = relatorio + "Sensibilidade: " + round.format(rec*100) + "%\n";
+		relatorio = relatorio + "Especificidade: " + round.format(spe*100) + "%\n";
 		relatorio = relatorio + "F1 score: " + round.format(f1) + "\n";
 		
 		return relatorio;
