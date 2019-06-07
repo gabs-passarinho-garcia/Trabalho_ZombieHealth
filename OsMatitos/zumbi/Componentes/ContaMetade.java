@@ -3,8 +3,6 @@ package zumbi.Componentes;
 import zumbi.Interfaces.IContador.IContador;
 
 public class ContaMetade implements IContador {
-
-	@Override
 	public int melhorPergunta(String[][] sintomas) {
 		int melhor = 0;
 		int verdadeiros, verdadeirosMelhor = sintomas.length;
