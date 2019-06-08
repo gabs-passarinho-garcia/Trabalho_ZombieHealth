@@ -13,6 +13,7 @@
   
 ## Integrantes
 | **Nome** | **RA** |
+|---|---|
 | Christian Massao Konishi | 214570 |
 | Matheus Fernandes Lopes | 222228 |
 | Igor Kenzo Ishikawa Oshiro Nakashima | 217967 |
