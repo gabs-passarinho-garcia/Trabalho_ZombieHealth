@@ -1,4 +1,4 @@
-package zumbi.Componentes;
+package zumbi.Componentes.RedutorPossibilidades;
 
 import zumbi.Interfaces.IRedutorPossibilidades.*;
 
