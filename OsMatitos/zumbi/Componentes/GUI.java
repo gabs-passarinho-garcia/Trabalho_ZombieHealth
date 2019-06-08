@@ -105,6 +105,7 @@ public class GUI implements IGUI{
 		Button btnEstatisticas = new Button(shell, SWT.NONE);
 		Button btnResetar = new Button(shell, SWT.NONE);
 		Button btnNovoPaciente = new Button(shell, SWT.NONE);
+		Button btnAtestado = new Button(shell, SWT.NONE);
 		
 		//Button btnImportarCSV = new Button(shell, SWT.NONE);
 		btnImportarCSV.addSelectionListener(new SelectionAdapter() {
@@ -215,11 +216,12 @@ public class GUI implements IGUI{
 				btnEstatisticas.setVisible(true);
 				btnResetar.setVisible(true);
 				btnNovoPaciente.setVisible(true);
+				btnAtestado.setVisible(true);
 			}
 		});
 		btnDiagnostico.setAlignment(SWT.RIGHT);
 		btnDiagnostico.setBounds(382, 215, 79, 29);
-		btnDiagnostico.setText("Diagnose");
+		btnDiagnostico.setText("Diagnóstico");
 		btnDiagnostico.setVisible(false);
 		
 		//textMedico = new Text(shell, SWT.BORDER);
@@ -246,7 +248,7 @@ public class GUI implements IGUI{
 		lblNomeP.setBounds(608, 359, 251, 48);
 		
 		//StyledText Diagnostico = new StyledText(shell, SWT.BORDER);
-		Diagnostico.setBounds(307, 80, 226, 118);
+		Diagnostico.setBounds(307, 80, 242, 118);
 		Diagnostico.setVisible(false);
 		
 		//Button btnSalvar = new Button(shell, SWT.NONE);
@@ -270,7 +272,7 @@ public class GUI implements IGUI{
 				}
 			}
 		});
-		btnSalvar.setBounds(307, 215, 97, 29);
+		btnSalvar.setBounds(307, 215, 109, 29);
 		btnSalvar.setText("Salvar");
 		btnSalvar.setVisible(false);
 		
@@ -298,7 +300,7 @@ public class GUI implements IGUI{
 				stat.open();
 			}
 		});
-		btnEstatisticas.setBounds(307, 250, 97, 29);
+		btnEstatisticas.setBounds(307, 250, 109, 29);
 		btnEstatisticas.setText("Estatísticas");
 		btnEstatisticas.setVisible(false);
 		
@@ -310,7 +312,7 @@ public class GUI implements IGUI{
 				shell.close();
 			}
 		});
-		btnResetar.setBounds(307, 285, 97, 29);
+		btnResetar.setBounds(307, 285, 109, 29);
 		btnResetar.setText("Resetar");
 		btnResetar.setVisible(false);
 		
@@ -318,7 +320,7 @@ public class GUI implements IGUI{
 		btnNovoPaciente.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-					btnDiagnostico.setVisible(true);
+					btnDiagnostico.setVisible(false);
 					Diagnostico.setVisible(false);
 					btnSalvar.setVisible(false);
 					btnMotivar.setVisible(false);
@@ -331,6 +333,7 @@ public class GUI implements IGUI{
 					textPaciente.setVisible(true);
 					lblPaciente.setVisible(false);
 					lblNomeP.setVisible(false);
+					btnAtestado.setVisible(false);
 					diag--;
 					openDiag(btnDiagnostico);
 			}
@@ -338,6 +341,16 @@ public class GUI implements IGUI{
 		btnNovoPaciente.setBounds(436, 250, 113, 29);
 		btnNovoPaciente.setText("Novo Paciente");
 		btnNovoPaciente.setVisible(false);
+		
+		//Button btnAtestado = new Button(shell, SWT.NONE);
+		btnAtestado.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnAtestado.setBounds(436, 285, 113, 29);
+		btnAtestado.setText("Atestado");
+		btnAtestado.setVisible(false);
 		
 		Label lblBackground = new Label(shell, SWT.NONE);
 		lblBackground.setImage(SWTResourceManager.getImage("./Imagens/hospital_room.png"));
