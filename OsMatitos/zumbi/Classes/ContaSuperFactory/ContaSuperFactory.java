@@ -1,4 +1,4 @@
-package osMatitos.Classes.ContaSuperFactory;
+package zumbi.Classes.ContaSuperFactory;
 
 import zumbi.Interfaces.IContaFactory.*;
 import zumbi.Classes.MelhorFactory.*;
