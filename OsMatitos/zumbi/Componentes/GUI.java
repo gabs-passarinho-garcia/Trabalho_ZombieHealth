@@ -33,6 +33,7 @@ public class GUI implements IGUI{
 	private int diag = 0;
 	private Text textMedico;
 	private Text textPaciente;
+	private String csv = "";
 	static Boolean reset_button = true;
 	
 	public void openDiag(Button atual) {
@@ -106,6 +107,7 @@ public class GUI implements IGUI{
 		Button btnResetar = new Button(shell, SWT.NONE);
 		Button btnNovoPaciente = new Button(shell, SWT.NONE);
 		Button btnAtestado = new Button(shell, SWT.NONE);
+		Button btnTwittar = new Button(shell, SWT.NONE);
 		
 		//Button btnImportarCSV = new Button(shell, SWT.NONE);
 		btnImportarCSV.addSelectionListener(new SelectionAdapter() {
@@ -124,7 +126,8 @@ public class GUI implements IGUI{
 					return;
 				}
 				else {
-					System.out.println(fld.getFilterPath() + "/" + fld.getFileName());
+					csv = fld.getFilterPath() + "/" + fld.getFileName();
+					System.out.println(csv);
 					btnIniciarFalso.setVisible(false);
 					btnIniciar.setVisible(true);
 				}
@@ -217,10 +220,10 @@ public class GUI implements IGUI{
 				btnResetar.setVisible(true);
 				btnNovoPaciente.setVisible(true);
 				btnAtestado.setVisible(true);
+				btnTwittar.setVisible(true);
 			}
 		});
-		btnDiagnostico.setAlignment(SWT.RIGHT);
-		btnDiagnostico.setBounds(382, 215, 79, 29);
+		btnDiagnostico.setBounds(381, 215, 109, 29);
 		btnDiagnostico.setText("Diagnóstico");
 		btnDiagnostico.setVisible(false);
 		
@@ -334,6 +337,7 @@ public class GUI implements IGUI{
 					lblPaciente.setVisible(false);
 					lblNomeP.setVisible(false);
 					btnAtestado.setVisible(false);
+					btnTwittar.setVisible(false);
 					diag--;
 					openDiag(btnDiagnostico);
 			}
@@ -351,6 +355,16 @@ public class GUI implements IGUI{
 		btnAtestado.setBounds(436, 285, 113, 29);
 		btnAtestado.setText("Atestado");
 		btnAtestado.setVisible(false);
+		
+		//Button btnTwittar = new Button(shell, SWT.NONE);
+		btnTwittar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnTwittar.setBounds(307, 320, 109, 29);
+		btnTwittar.setText("Twittar");
+		btnTwittar.setVisible(false);
 		
 		Label lblBackground = new Label(shell, SWT.NONE);
 		lblBackground.setImage(SWTResourceManager.getImage("./Imagens/hospital_room.png"));
