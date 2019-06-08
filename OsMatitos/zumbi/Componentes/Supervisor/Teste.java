@@ -5,7 +5,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 		
-		ISupervisor a = new Supervisor();
+		ISupervisor a = FabricaSupervisor.criarSupervisor();
 		a.reportar("gripe", "gripe");
 		a.reportar("gripe", "gripe");
 		a.reportar("gripe", "malaria");
@@ -16,6 +16,19 @@ public class Teste {
 		a.reportar("vomito", "gripe");
 		
 		((Supervisor)a).imprimir();
+		
+		System.out.print(a.strRelatorio());
+		a.serializar("");
+		ISupervisor b = FabricaSupervisor.criarSupervisor("");
+		((Supervisor)b).imprimir();
+		b.gerarRelatorio();
+		
+		b.reset();
+		b.reportar("vomito", "gripe");
+		((Supervisor)b).imprimir();
+		System.out.println(b.getAcuracia());
+		b.motivar();
+		System.out.println(b.strMotivar());
 	}
 
 }
