@@ -1,6 +1,7 @@
 package zumbi.Componentes;
 
 import zumbi.Interfaces.IGUI.IGUI;
+import org.eclipse.swt.widgets.MessageBox;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.FileReader;
@@ -22,6 +23,8 @@ import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.FileDialog;
+import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 
 public class GUI implements IGUI{
 
@@ -55,6 +58,7 @@ public class GUI implements IGUI{
 
 	/**
 	 * Open the window.
+	 * @wbp.parser.entryPoint
 	 */
 	public void open() {
 		Display display = Display.getDefault();
@@ -76,6 +80,12 @@ public class GUI implements IGUI{
 		shell.setSize(890, 500);
 		shell.setText("Matitos's Hospital");
 		
+		Button btnImportarCSV = new Button(shell, SWT.NONE);
+		Button btnIniciar = new Button(shell, SWT.NONE);
+		Button btnIniciarFalso = new Button(shell, SWT.NONE);
+		btnIniciarFalso.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_NORMAL_SHADOW));
+		btnIniciarFalso.setBounds(370, 260, 124, 29);
+		btnIniciarFalso.setText("Iniciar");
 		Button btnMedico = new Button(shell, SWT.NONE);
 		Button btnPaciente = new Button(shell, SWT.NONE);
 		Label lblMedico = new Label(shell, SWT.NONE);
@@ -95,6 +105,55 @@ public class GUI implements IGUI{
 		Button btnEstatisticas = new Button(shell, SWT.NONE);
 		Button btnResetar = new Button(shell, SWT.NONE);
 		
+		//Button btnImportarCSV = new Button(shell, SWT.NONE);
+		btnImportarCSV.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				FileDialog fld = new FileDialog(shell, SWT.OPEN);
+				fld.setText("Importar CSV");
+				String txtFilter[] = {".csv"};
+				fld.setFilterNames(txtFilter);
+				fld.setFilterPath("");
+				fld.open();
+				if(fld.getFilterPath().equals("")) {
+					return;
+				}
+				else if(fld.getFileName().indexOf(".csv")==-1) {
+					return;
+				}
+				else {
+					System.out.println(fld.getFilterPath() + "/" + fld.getFileName());
+					btnIniciarFalso.setVisible(false);
+					btnIniciar.setVisible(true);
+				}
+			}
+		});
+		btnImportarCSV.setBounds(370, 215, 124, 29);
+		btnImportarCSV.setText("Importar CSV");
+		
+		btnIniciar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				lblNomeMedico.setVisible(true);
+				textMedico.setVisible(true);
+				btnMedico.setVisible(true);
+				
+				lblNomePaciente.setVisible(true);
+				textPaciente.setVisible(true);
+				btnPaciente.setVisible(true);
+				
+				btnImportarCSV.setVisible(false);
+				btnIniciar.setVisible(false);
+			}
+		});
+		btnIniciar.setBounds(370, 260, 124, 29);
+		btnIniciar.setText("Iniciar");
+		btnIniciar.setVisible(false);
+		
+		btnIniciarFalso.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_NORMAL_SHADOW));
+		btnIniciarFalso.setBounds(370, 260, 124, 29);
+		btnIniciarFalso.setText("Iniciar");
+		
 		//Label lblNomeM = new Label(shell, SWT.NONE);
 		lblNomeM.setBounds(53, 359, 363, 17);
 		
@@ -112,7 +171,8 @@ public class GUI implements IGUI{
 			}
 		});
 		btnMedico.setBounds(78, 250, 159, 29);
-		btnMedico.setText("Generate Doctor");
+		btnMedico.setText("Gerar Doutor");
+		btnMedico.setVisible(false);
 		
 		//Button btnPaciente = new Button(shell, SWT.NONE);
 		btnPaciente.addSelectionListener(new SelectionAdapter() {
@@ -128,7 +188,8 @@ public class GUI implements IGUI{
 			}
 		});
 		btnPaciente.setBounds(658, 250, 150, 29);
-		btnPaciente.setText("Generate Patient");
+		btnPaciente.setText("Generate Paciente");
+		btnPaciente.setVisible(false);
 		
 		//Label lblMedico = new Label(shell, SWT.NONE);
 		lblMedico.setImage(SWTResourceManager.getImage("./Imagens/penguin_doctor.png"));
@@ -160,19 +221,23 @@ public class GUI implements IGUI{
 		
 		//textMedico = new Text(shell, SWT.BORDER);
 		textMedico.setBounds(78, 215, 159, 29);
+		textMedico.setVisible(false);
 		
 		//textPaciente = new Text(shell, SWT.BORDER);
 		textPaciente.setBounds(658, 215, 150, 29);
+		textPaciente.setVisible(false);
 		
 		//Label lblNomeMedico = new Label(shell, SWT.NONE);
 		lblNomeMedico.setAlignment(SWT.CENTER);
 		lblNomeMedico.setBounds(78, 192, 159, 17);
 		lblNomeMedico.setText("Nome do Médico:");
+		lblNomeMedico.setVisible(false);
 		
 		//Label lblNomePaciente = new Label(shell, SWT.NONE);
 		lblNomePaciente.setAlignment(SWT.CENTER);
 		lblNomePaciente.setBounds(658, 192, 150, 17);
 		lblNomePaciente.setText("Nome do Paciente:");
+		lblNomePaciente.setVisible(false);
 		
 		//Label lblNomeP = new Label(shell, SWT.NONE);
 		lblNomeP.setBounds(608, 359, 251, 48);
@@ -210,6 +275,10 @@ public class GUI implements IGUI{
 		btnMotivar.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				MessageBox stat = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+				stat.setText("Motivação");
+				stat.setMessage("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+				stat.open();
 			}
 		});
 		btnMotivar.setBounds(436, 215, 97, 29);
@@ -220,6 +289,10 @@ public class GUI implements IGUI{
 		btnEstatisticas.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				MessageBox stat = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+				stat.setText("Estatísticas");
+				stat.setMessage("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+				stat.open();
 			}
 		});
 		btnEstatisticas.setBounds(307, 250, 97, 29);
