@@ -1,7 +1,7 @@
 package zumbi.Componentes.RedutorPossibilidades;
 
 public class FabricaRedutor {
-	public static RedutorPossibilidades criarRedutor() {
+	public static RedutorPossibilidades criaRedutor() {
 		return new RedutorPossibilidades();
 	}
 }
