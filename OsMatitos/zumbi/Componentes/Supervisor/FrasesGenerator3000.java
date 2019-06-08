@@ -4,7 +4,6 @@ import java.util.*;
 
 public class FrasesGenerator3000 {
 	public static String getFrase() {
-		System.getProperty("file.encoding","UTF-8");
 		String frases[] = {
 				"As coisas poderiam ser muito piores: imagina ser o paciente",
 				"Lembre-se: se fosse fácil você não faria",
