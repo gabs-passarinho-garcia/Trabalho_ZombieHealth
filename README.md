@@ -10,6 +10,16 @@
   
 - Arquivos .jar
   - Componente à venda =p
+  
+## Integrantes
+| **Nome** | **RA** |
+| Christian Massao Konishi | 214570 |
+| Matheus Fernandes Lopes | 222228 |
+| Igor Kenzo Ishikawa Oshiro Nakashima | 217967 |
+| Felipe Hideki Matoba | 196767 |
+| Gabriel de Freitas Garcia | 216179 |
+| Henrique Finger Zimerman | 217771 |
+
 
 ## Documentação dos componentes
 
