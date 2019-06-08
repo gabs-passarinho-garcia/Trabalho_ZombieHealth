@@ -10,6 +10,7 @@
   
 - Arquivos .jar
   - Componente à venda =p
+  - Os exemplos estão junto >_<
   
 ## Integrantes
 | **Nome** | **RA** |
