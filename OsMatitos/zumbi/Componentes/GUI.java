@@ -104,6 +104,7 @@ public class GUI implements IGUI{
 		Button btnMotivar = new Button(shell, SWT.NONE);
 		Button btnEstatisticas = new Button(shell, SWT.NONE);
 		Button btnResetar = new Button(shell, SWT.NONE);
+		Button btnNovoPaciente = new Button(shell, SWT.NONE);
 		
 		//Button btnImportarCSV = new Button(shell, SWT.NONE);
 		btnImportarCSV.addSelectionListener(new SelectionAdapter() {
@@ -183,6 +184,7 @@ public class GUI implements IGUI{
 				textPaciente.setVisible(false);
 				lblPaciente.setVisible(true);
 				lblNomeP.setText(textPaciente.getText() + " , o Paciente Zumbi.");
+				lblNomeP.setVisible(true);
 				diag++;
 				openDiag(btnDiagnostico);
 			}
@@ -212,6 +214,7 @@ public class GUI implements IGUI{
 				btnMotivar.setVisible(true);
 				btnEstatisticas.setVisible(true);
 				btnResetar.setVisible(true);
+				btnNovoPaciente.setVisible(true);
 			}
 		});
 		btnDiagnostico.setAlignment(SWT.RIGHT);
@@ -281,7 +284,7 @@ public class GUI implements IGUI{
 				stat.open();
 			}
 		});
-		btnMotivar.setBounds(436, 215, 97, 29);
+		btnMotivar.setBounds(436, 215, 113, 29);
 		btnMotivar.setText("Motivar");
 		btnMotivar.setVisible(false);
 		
@@ -291,7 +294,7 @@ public class GUI implements IGUI{
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox stat = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 				stat.setText("Estatísticas");
-				stat.setMessage("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+				stat.setMessage("aaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaa");
 				stat.open();
 			}
 		});
@@ -307,9 +310,34 @@ public class GUI implements IGUI{
 				shell.close();
 			}
 		});
-		btnResetar.setBounds(436, 250, 97, 29);
+		btnResetar.setBounds(307, 285, 97, 29);
 		btnResetar.setText("Resetar");
 		btnResetar.setVisible(false);
+		
+		//Button btnNovoPaciente = new Button(shell, SWT.NONE);
+		btnNovoPaciente.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+					btnDiagnostico.setVisible(true);
+					Diagnostico.setVisible(false);
+					btnSalvar.setVisible(false);
+					btnMotivar.setVisible(false);
+					btnEstatisticas.setVisible(false);
+					btnResetar.setVisible(false);
+					btnNovoPaciente.setVisible(false);
+					
+					btnPaciente.setVisible(true);
+					lblNomePaciente.setVisible(true);
+					textPaciente.setVisible(true);
+					lblPaciente.setVisible(false);
+					lblNomeP.setVisible(false);
+					diag--;
+					openDiag(btnDiagnostico);
+			}
+		});
+		btnNovoPaciente.setBounds(436, 250, 113, 29);
+		btnNovoPaciente.setText("Novo Paciente");
+		btnNovoPaciente.setVisible(false);
 		
 		Label lblBackground = new Label(shell, SWT.NONE);
 		lblBackground.setImage(SWTResourceManager.getImage("./Imagens/hospital_room.png"));
