@@ -1,5 +1,15 @@
 package zumbi.Classes.GUI;
 
+//Componente do Twitter e atestado
+import jsmaiorjava.implementations.Prontuario;
+import jsmaiorjava.implementations.Tratamento;
+import jsmaiorjava.implementations.ZumbiTwittero;
+import jsmaiorjava.interfaces.IProntuario;
+import jsmaiorjava.interfaces.ITratamento;
+import jsmaiorjava.interfaces.IZumbiTwittero;
+import jsmaiorjava.implementations.ImprimeAtestado;
+import jsmaiorjava.interfaces.IImprimeAtestado;
+
 import zumbi.Interfaces.IGUI.IGUI;
 import org.eclipse.swt.widgets.MessageBox;
 import java.io.FileWriter;
@@ -405,6 +415,29 @@ public class GUI implements IGUI{
 		btnTwittar.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				System.out.println(textPaciente.getText());
+				try {
+		            String doenca = doutor.getDiagnose();
+		            ITratamento tratamento = new Tratamento(doenca);
+		            String paciente = textPaciente.getText();
+		            String doutor = textMedico.getText();
+		            IProntuario prontuario = new Prontuario(tratamento, paciente, doutor);
+		            ZumbiTwittero zt = new ZumbiTwittero(prontuario,
+		                    "CHU CHU, LÁ VEM O TREM DAS DOENÇAS:\n" +
+		                     "@doutor examinando @paciente, que aparentemente tem @doenca.\n" +
+		                            "O tratamento consiste em: @tratamento.");
+
+		            boolean sucesso = zt.twittar();
+
+		            if (sucesso)
+		                System.out.println("Deu bom");
+
+		            else
+		                System.out.println("Deu ruim");
+
+		        } catch (Exception a) {
+		            System.out.println(a);
+		        }
 			}
 		});
 		btnTwittar.setBounds(307, 320, 109, 29);
