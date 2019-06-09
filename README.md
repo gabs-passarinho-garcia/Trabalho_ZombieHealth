@@ -9,8 +9,8 @@
   - Projeto Eclipse
   
 - Arquivos .jar
-  - Componente à venda =p
-  - Os exemplos estão junto >_<
+  - Componentes à venda =p
+  - Os exemplos estão juntos >_<
   
 ## Integrantes
 | **Nome** | **RA** |
