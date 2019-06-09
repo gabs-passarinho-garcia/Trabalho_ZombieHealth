@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.swt"/>
+	<classpathentry kind="lib" path="C:/Users/chris/Desktop/zombie/Trabalho_ZombieHealth/lib/js_maior_java.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
