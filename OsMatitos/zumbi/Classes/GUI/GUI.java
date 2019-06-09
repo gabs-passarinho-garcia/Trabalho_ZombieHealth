@@ -1,4 +1,4 @@
-package zumbi.Componentes;
+package zumbi.Classes.GUI;
 
 import zumbi.Interfaces.IGUI.IGUI;
 import org.eclipse.swt.widgets.MessageBox;
@@ -26,6 +26,23 @@ import org.eclipse.swt.widgets.FileDialog;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 
+import zumbi.Classes.ContaSuperFactory.*;
+import zumbi.Classes.ConversorString.*;
+import zumbi.Classes.GUI.*;
+import zumbi.Classes.MelhorFactory.*;
+import zumbi.Componentes.DataSetComponent.*;
+import zumbi.Componentes.RedutorPossibilidades.*;
+import zumbi.Componentes.Supervisor.*;
+import zumbi.Consulta.Pessoas.*;
+import zumbi.Interfaces.IContador.*;
+import zumbi.Interfaces.IContaFactory.*;
+import zumbi.Interfaces.IDataSet.*;
+import zumbi.Interfaces.IDoctor.*;
+import zumbi.Interfaces.IGUI.*;
+import zumbi.Interfaces.IPatient.*;
+import zumbi.Interfaces.IRedutorPossibilidades.*;
+import zumbi.Interfaces.ISupervisor.*;
+
 public class GUI implements IGUI{
 
 	protected Shell shell;
@@ -35,6 +52,11 @@ public class GUI implements IGUI{
 	private Text textPaciente;
 	private String csv = "";
 	static Boolean reset_button = true;
+	
+	private IDoctor doutor;
+	private IPatient paciente;
+	private IDataSet dataset = new DataSetComponent();
+	private ISupervisor supervisor =  FabricaSupervisor.criarSupervisor();
 	
 	public void openDiag(Button atual) {
 		if(diag>1)
@@ -127,9 +149,13 @@ public class GUI implements IGUI{
 				}
 				else {
 					csv = fld.getFilterPath() + "/" + fld.getFileName();
+					dataset.setDataSource(csv);
 					System.out.println(csv);
 					btnIniciarFalso.setVisible(false);
 					btnIniciar.setVisible(true);
+					
+					//System.out.println(dataset.requestInstances()[0][0]);
+					
 				}
 			}
 		});
@@ -173,6 +199,10 @@ public class GUI implements IGUI{
 				lblNomeM.setText(textMedico.getText() + " , o Médico Penguim.");
 				diag++;
 				openDiag(btnDiagnostico);
+				
+				doutor = new Doctor();
+				doutor.connect(dataset);
+				
 			}
 		});
 		btnMedico.setBounds(78, 250, 159, 29);
@@ -191,6 +221,11 @@ public class GUI implements IGUI{
 				lblNomeP.setVisible(true);
 				diag++;
 				openDiag(btnDiagnostico);
+				
+				
+				paciente = new Patient();
+				paciente.connect(dataset);
+				
 			}
 		});
 		btnPaciente.setBounds(658, 250, 150, 29);
@@ -221,6 +256,13 @@ public class GUI implements IGUI{
 				btnNovoPaciente.setVisible(true);
 				btnAtestado.setVisible(true);
 				btnTwittar.setVisible(true);
+				
+				doutor.connect(paciente);
+				paciente.connect(supervisor);
+				
+				doutor.startInterview();
+				Diagnostico.setText("Diagnóstico:\n " + doutor.getDiagnose());
+				
 			}
 		});
 		btnDiagnostico.setBounds(381, 215, 109, 29);
@@ -284,8 +326,9 @@ public class GUI implements IGUI{
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox stat = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+				String message = supervisor.strMotivar();
 				stat.setText("Motivação");
-				stat.setMessage("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+				stat.setMessage(message);
 				stat.open();
 			}
 		});
@@ -299,8 +342,10 @@ public class GUI implements IGUI{
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox stat = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 				stat.setText("Estatísticas");
-				stat.setMessage("aaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaa");
+				stat.setMessage(supervisor.strRelatorio());
 				stat.open();
+				
+				System.out.println(supervisor.strRelatorio());
 			}
 		});
 		btnEstatisticas.setBounds(307, 250, 109, 29);

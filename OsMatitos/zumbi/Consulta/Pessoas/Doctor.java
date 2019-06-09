@@ -52,8 +52,8 @@ public class Doctor implements IDoctor {
 		diagnose = getPatient(copia, attributes.length - 1); 
 
 		System.out.println("Disease guess: " + diagnose);
-		//boolean result = responder.finalAnswer(diagnose);
-		//System.out.println("Result: " + ((result) ? "I am right =)" : "I am wrong =("));
+		boolean result = responder.finalAnswer(diagnose);
+		System.out.println("Result: " + ((result) ? "I am right =)" : "I am wrong =("));
 	}
 
 	public boolean onePossibility(String matriz[][], int n) { 
@@ -73,7 +73,7 @@ public class Doctor implements IDoctor {
 		return onlyOne;
 	}
 
-	private String getPatient(String matriz[][], int n) {
+	public String getPatient(String matriz[][], int n) {
 		String returnValue = matriz[0][n];
 		return returnValue;
 	}
@@ -82,7 +82,7 @@ public class Doctor implements IDoctor {
 		return diagnose;
 	}
 	
-	public static String[][] copiaMatriz(String[][] original) {
+	private static String[][] copiaMatriz(String[][] original) {
 		String[][] copia = new String[original.length][original[0].length];
 		for (int i = 0; i < original.length; i++)
 			for (int j = 0; j < original[0].length; j++) 

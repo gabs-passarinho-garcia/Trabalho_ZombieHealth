@@ -54,6 +54,7 @@ public class Supervisor implements ISupervisor{
 			}
 			if (tp+fp != 0) {
 				pre = pre + (double) tp/(tp+fp);
+				System.out.println(fp);
 			}
 			else {
 				lpre = lpre + 1;
@@ -66,7 +67,6 @@ public class Supervisor implements ISupervisor{
 			}
 		}
 			
-		
 		rec = (double) rec/(total-lrec);
 		pre = (double) pre/(total-lpre);
 		spe = (double) spe/(total-lspe);
@@ -77,7 +77,7 @@ public class Supervisor implements ISupervisor{
 		relatorio = relatorio + "Precisão: " + round.format(pre*100) + "%\n";
 		relatorio = relatorio + "Sensibilidade: " + round.format(rec*100) + "%\n";
 		relatorio = relatorio + "Especificidade: " + round.format(spe*100) + "%\n";
-		relatorio = relatorio + "F1 score: " + round.format(f1) + "\n";
+		relatorio = relatorio + "F1 score: " + "0" + round.format(f1) + "\n";
 		
 		return relatorio;
 	}

@@ -15,7 +15,9 @@ public class Patient implements IPatient {
 	private String correctAnswer;
 	
 	public void connect(ITableProducer producer) {
+		
 		this.producer = producer;
+		
 
 		attributes = producer.requestAttributes();
 		String instances[][] = producer.requestInstances();
@@ -25,6 +27,7 @@ public class Patient implements IPatient {
 
 		System.out.println("Patient selected: " + patientN);
 		System.out.println("Patient's disease: " + patientInstance[attributes.length - 1]);
+		
 	}
 
 	public String ask(String question) {
@@ -46,6 +49,8 @@ public class Patient implements IPatient {
 			correctAnswer = "correct";
 		else
 			correctAnswer = "incorrect";
+		
+		notificar(answer);
 		
 		return result;
 	}
