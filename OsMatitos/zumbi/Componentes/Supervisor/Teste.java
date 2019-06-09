@@ -6,14 +6,14 @@ public class Teste {
 	public static void main(String[] args) {
 		
 		ISupervisor a = FabricaSupervisor.criarSupervisor();
+		
 		a.reportar("gripe", "gripe");
 		a.reportar("gripe", "gripe");
-		a.reportar("gripe", "malaria");
-		a.reportar("gripe", "malaria");
-		a.reportar("malaria", "gripe");
-		a.reportar("febre", "ulcera");
-		a.reportar("vomito", "gripe");
-		a.reportar("vomito", "gripe");
+		a.reportar("malaria", "malaria");
+		a.reportar("malaria", "malaria");
+		a.reportar("vomito", "vomito");
+		a.reportar("vomito", "vomito");
+		a.reportar("dd", "bb");
 		
 		((Supervisor)a).imprimir();
 		

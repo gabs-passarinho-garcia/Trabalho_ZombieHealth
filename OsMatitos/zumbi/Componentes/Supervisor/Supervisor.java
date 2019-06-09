@@ -46,38 +46,43 @@ public class Supervisor implements ISupervisor{
 			fn = LinearAlgebra.somaColuna(matrix, i) - tp;
 			tn = LinearAlgebra.somaDiagonal(matrix) - tp;
 		
-			if(tp+fn != 0) {
-				rec = rec + (double) tp/(tp+fn);
+			if(tp+fn!=0) {
+				rec = rec + (double) (tp/(tp+fn));
 			}
 			else {
 				lrec = lrec + 1;
 			}
-			if (tp+fp != 0) {
+			if (tp+fp!=0) {
 				pre = pre + (double) tp/(tp+fp);
-				System.out.println(fp);
 			}
 			else {
 				lpre = lpre + 1;
 			}
-			if(tn+fp != 0) {
+			if (tn+fp!=0) {
 				spe = spe + (double) tn/(tn+fp);
 			}
 			else {
 				lspe = lspe + 1;
 			}
 		}
-			
-		rec = (double) rec/(total-lrec);
-		pre = (double) pre/(total-lpre);
-		spe = (double) spe/(total-lspe);
-		f1 = f1 + (double) (2*pre*rec)/(pre+rec);
 		
-		DecimalFormat round = new DecimalFormat("#.00");
+		
+		rec = (double) (rec/(nClass-lrec));
+		pre = (double) (pre/(nClass-lpre));
+		spe = (double) (spe/(nClass-lspe));
+		if (pre+rec != 0) {
+			f1 = f1 + (double) ((2*pre*rec)/(pre+rec));
+		}
+		else {
+			f1 = (double) 0;
+		}
+		
+		DecimalFormat round = new DecimalFormat("0.00");
 		String relatorio = "Acurácia: " + round.format(acc*100) + "%\n";
 		relatorio = relatorio + "Precisão: " + round.format(pre*100) + "%\n";
 		relatorio = relatorio + "Sensibilidade: " + round.format(rec*100) + "%\n";
 		relatorio = relatorio + "Especificidade: " + round.format(spe*100) + "%\n";
-		relatorio = relatorio + "F1 score: " + "0" + round.format(f1) + "\n";
+		relatorio = relatorio + "F1 score: "  + round.format(f1) + "\n";
 		
 		return relatorio;
 	}
