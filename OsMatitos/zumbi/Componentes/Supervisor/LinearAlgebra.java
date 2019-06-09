@@ -6,15 +6,15 @@ public class LinearAlgebra{
     {
         int total = 0;
         for (int i = 0; i < matriz.size(); i++){
-            total += (matriz.get(i)).get(coluna);
+            total = total + (matriz.get(i)).get(coluna);
         }
         return total;
     }
     public static int somaLinha(Vector<Vector<Integer>> matriz, int linha)
     {
         int total = 0;
-        for (int i = 0; i < (matriz.get(0)).size(); i++){
-            total += (matriz.get(linha)).get(i);
+        for (int i = 0; i < matriz.size(); i++){
+            total = total + (matriz.get(linha)).get(i);
         }
         return total;
     }
@@ -22,7 +22,7 @@ public class LinearAlgebra{
     {
         int total = 0;
 
-        for (int i = 0; i < smaller(matriz.size(),(matriz.get(0)).size()); i++){
+        for (int i = 0; i < matriz.size(); i++){
             total += (matriz.get(i)).get(i);
         }
         return total;
