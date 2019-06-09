@@ -415,7 +415,6 @@ public class GUI implements IGUI{
 		btnTwittar.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				System.out.println(textPaciente.getText());
 				try {
 		            String doenca = doutor.getDiagnose();
 		            ITratamento tratamento = new Tratamento(doenca);
