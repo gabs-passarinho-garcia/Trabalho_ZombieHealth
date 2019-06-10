@@ -71,9 +71,18 @@ public class GUI implements IGUI{
 	private IDataSet dataset = new DataSetComponent();
 	private ISupervisor supervisor =  FabricaSupervisor.criarSupervisor();
 	
-	public void openDiag(Button atual) {
+	private void openDiag(Button atual) {
 		if(diag>1)
 			atual.setVisible(true);
+	}
+	
+	private void openAtestado(Button atual, String doutor, String paciente) {
+		if(doutor.equals("") || paciente.equals("")) {
+			return;
+		}
+		else {
+			atual.setVisible(true);
+		}
 	}
 
 	/**
@@ -242,7 +251,7 @@ public class GUI implements IGUI{
 			}
 		});
 		btnPaciente.setBounds(658, 250, 150, 29);
-		btnPaciente.setText("Generate Paciente");
+		btnPaciente.setText("Gerar Paciente");
 		btnPaciente.setVisible(false);
 		
 		//Label lblMedico = new Label(shell, SWT.NONE);
@@ -267,15 +276,34 @@ public class GUI implements IGUI{
 				btnEstatisticas.setVisible(true);
 				btnResetar.setVisible(true);
 				btnNovoPaciente.setVisible(true);
-				btnAtestado.setVisible(true);
+				openAtestado(btnAtestado, textMedico.getText(), textPaciente.getText());
 				btnTwittar.setVisible(true);
 				
 				doutor.connect(paciente);
 				paciente.connect(supervisor);
 				
 				doutor.startInterview();
-				Diagnostico.setText("Diagnóstico:\n " + doutor.getDiagnose());
-				Speak.speak(textPaciente.getText() + " tem a doença" + doutor.getDiagnose());
+				String diagnostico = "Diagnóstico:\n";
+				diagnostico += textPaciente.getText();
+				diagnostico += " possui ";
+				diagnostico += doutor.getDiagnose();
+				diagnostico += "\n";
+				diagnostico += "Resultado:\n";
+				if(paciente.getCorrectAnswer().equals("correct")) {
+					diagnostico += "O doutor acertou o diagnóstico do\n";
+					diagnostico += "paciente.\n";
+					diagnostico += "Este passa bem e é feliz.";
+				}
+				else {
+					diagnostico += "O doutor errou o diagnóstico do\n";
+					diagnostico += "paciente.";
+					diagnostico += "Como consequência o paciente";
+					diagnostico += "veio a óbito...\n";
+					diagnostico += "pela segunda vez.";
+				}
+				
+				Diagnostico.setText(diagnostico);
+				Speak.speak(textPaciente.getText() + " has" + doutor.getDiagnose());
 				
 			}
 		});
