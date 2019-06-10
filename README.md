@@ -119,7 +119,7 @@ Interface que utilizada para analisar uma fonte de dados
 
 | Campo | Valor |
 |---|---|
-| Classe | *zumbi.Componentes.GUI.GUI* |
+| Classe | *zumbi.Classes.GUI.GUI* |
 | Autores | Matheus |
 | Objetivo | Apresentar uma interface gráfica interativa |
 | Interface | *zumbi.Interfaces.IGUI.IGUI* |
@@ -127,9 +127,7 @@ Interface que utilizada para analisar uma fonte de dados
 ~~~
 public interface IGUI {
 	public void open();
-	void connectDoutor(Doctor doutor);
-	void connectPaciente(Patient patient);
-	void diagnostico();
+	public static void main(String[] args)
 }
 ~~~
 
