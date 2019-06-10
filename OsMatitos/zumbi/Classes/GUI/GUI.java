@@ -409,9 +409,9 @@ public class GUI implements IGUI{
 		btnAtestado.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				IImprimeAtestado escriba = new ImprimeAtestado();
 				IProntuario prontuario = new Prontuario(textPaciente.getText(), textMedico.getText(), doutor.getDiagnose());
-				escriba.imprime(prontuario);
+				IImprimeAtestado escriba = new ImprimeAtestado(prontuario);
+				escriba.imprime();
 			}
 		});
 		btnAtestado.setBounds(436, 285, 113, 29);
