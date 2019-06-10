@@ -1,6 +1,6 @@
 package zumbi.Classes.GUI;
 
-//Componente do Twitter e atestado
+import speak.Speak;
 import jsmaiorjava.implementations.Prontuario;
 import jsmaiorjava.implementations.Tratamento;
 import jsmaiorjava.implementations.ZumbiTwittero;
@@ -272,6 +272,7 @@ public class GUI implements IGUI{
 				
 				doutor.startInterview();
 				Diagnostico.setText("Diagnóstico:\n " + doutor.getDiagnose());
+				Speak.speak(textPaciente.getText() + " tem a doença" + doutor.getDiagnose());
 				
 			}
 		});
