@@ -1,5 +1,8 @@
 package zumbi.Classes.GUI;
 
+import jsmaiorjava.implementations.ImprimeAtestado;
+import jsmaiorjava.interfaces.IImprimeAtestado;
+
 import speak.Speak;
 import jsmaiorjava.implementations.Prontuario;
 import jsmaiorjava.implementations.Tratamento;
@@ -406,6 +409,9 @@ public class GUI implements IGUI{
 		btnAtestado.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				IImprimeAtestado escriba = new ImprimeAtestado();
+				IProntuario prontuario = new Prontuario(textPaciente.getText(), textMedico.getText(), doutor.getDiagnose());
+				escriba.imprime(prontuario);
 			}
 		});
 		btnAtestado.setBounds(436, 285, 113, 29);
