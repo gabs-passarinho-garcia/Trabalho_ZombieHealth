@@ -286,7 +286,7 @@ public class GUI implements IGUI{
 				String diagnostico = "Diagnóstico:\n";
 				diagnostico += textPaciente.getText();
 				diagnostico += " possui ";
-				diagnostico += doutor.getDiagnose();
+				diagnostico += doutor.getDiagnose().replace('_', ' ');
 				diagnostico += "\n";
 				diagnostico += "Resultado:\n";
 				if(paciente.getCorrectAnswer().equals("correct")) {
@@ -303,7 +303,7 @@ public class GUI implements IGUI{
 				}
 				
 				Diagnostico.setText(diagnostico);
-				Speak.speak(textPaciente.getText() + " has" + doutor.getDiagnose());
+				Speak.speak(textPaciente.getText() + " has" + doutor.getDiagnose().replace('_', ' '));
 				
 			}
 		});
@@ -437,7 +437,7 @@ public class GUI implements IGUI{
 		btnAtestado.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				IProntuario prontuario = new Prontuario(textPaciente.getText(), textMedico.getText(), doutor.getDiagnose());
+				IProntuario prontuario = new Prontuario(textPaciente.getText(), textMedico.getText(), doutor.getDiagnose().replace('_', ' '));
 				IImprimeAtestado escriba = new ImprimeAtestado(prontuario);
 				escriba.imprime();
 			}
@@ -451,7 +451,7 @@ public class GUI implements IGUI{
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-		            String doenca = doutor.getDiagnose();
+		            String doenca = doutor.getDiagnose().replace('_', ' ');
 		            ITratamento tratamento = new Tratamento(doenca);
 		            String paciente = textPaciente.getText();
 		            String doutor = textMedico.getText();
