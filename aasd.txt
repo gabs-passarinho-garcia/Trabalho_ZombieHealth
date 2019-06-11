@@ -1,0 +1,6 @@
+Diagnóstico:
+aasd possui bacterial_infection
+Resultado:
+O doutor acertou o diagnóstico do
+paciente.
+Este passa bem e é feliz.

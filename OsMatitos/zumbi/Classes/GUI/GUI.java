@@ -255,12 +255,12 @@ public class GUI implements IGUI{
 		btnPaciente.setVisible(false);
 		
 		//Label lblMedico = new Label(shell, SWT.NONE);
-		lblMedico.setImage(SWTResourceManager.getImage("./Imagens/penguin_doctor.png"));
+		lblMedico.setImage(SWTResourceManager.getImage(GUI.class, "/Imagens/penguin_doctor.png"));
 		lblMedico.setBounds(53, 80, 200, 300);
 		lblMedico.setVisible(false);
 		
 		//Label lblPaciente = new Label(shell, SWT.NONE);
-		lblPaciente.setImage(SWTResourceManager.getImage("./Imagens/patient.png"));
+		lblPaciente.setImage(SWTResourceManager.getImage(GUI.class, "/Imagens/patient.png"));
 		lblPaciente.setBounds(608, 64, 200, 300);
 		lblPaciente.setVisible(false);
 		
@@ -297,7 +297,7 @@ public class GUI implements IGUI{
 				else {
 					diagnostico += "O doutor errou o diagnóstico do\n";
 					diagnostico += "paciente.";
-					diagnostico += "Como consequência o paciente";
+					diagnostico += "Como consequência o paciente\n";
 					diagnostico += "veio a óbito...\n";
 					diagnostico += "pela segunda vez.";
 				}
@@ -346,11 +346,11 @@ public class GUI implements IGUI{
 				fld.setText("Salvar Diagnóstico");
 				String txtFilter[] = {".txt"};
 				fld.setFilterExtensions(txtFilter);
-				fld.setFileName("diagnostico");
+				fld.setFileName(textPaciente.getText());
 				fld.setFilterPath("");
 				fld.open();
 				try {
-					FileWriter arquivo = new FileWriter(fld.getFileName());
+					FileWriter arquivo = new FileWriter(fld.getFilterPath()+ "/" + fld.getFileName());
 					PrintWriter formatado = new PrintWriter(arquivo);
 					formatado.println(Diagnostico.getText());
 					arquivo.close();
@@ -479,7 +479,7 @@ public class GUI implements IGUI{
 		btnTwittar.setVisible(false);
 		
 		Label lblBackground = new Label(shell, SWT.NONE);
-		lblBackground.setImage(SWTResourceManager.getImage("./Imagens/hospital_room.png"));
+		lblBackground.setImage(SWTResourceManager.getImage(GUI.class, "/Imagens/hospital_room.png"));
 		lblBackground.setBounds(0, 0, 900, 472);
 		shell.setTabList(new Control[]{textMedico, textPaciente, btnDiagnostico, btnMedico, btnPaciente});
 
