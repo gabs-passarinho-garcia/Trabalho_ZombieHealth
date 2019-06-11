@@ -32,7 +32,9 @@ public class Doctor implements IDoctor {
 		IContaFactory melhorFactory = ContaSuperFactory.criaFabrica();
 		IContador question = melhorFactory.criaMelhorPergunta();
 		IRedutorPossibilidades redutor = FabricaRedutor.criaRedutor();
-
+		
+		diagnosed = false;
+		diagnose = null;
 		for (int i = 0; i < attributes.length - 1; i++) { // numero de iteracoes eh menor que o numero de sintomas
 			int melhorN = question.melhorPergunta(copia);
 			String answer = responder.ask(attributes[melhorN]);
